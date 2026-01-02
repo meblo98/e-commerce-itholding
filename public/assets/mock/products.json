@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Running Snakes",
+    "description": "Chaussures de course légères et confortables",
+    "image": "assets/img/products/product-1-1.png",
+    "price": 145.00,
+    "brand_id": 1,
+    "category_id": 1
+  },
+  {
+    "id": 2,
+    "title": "Headphone X",
+    "description": "Casque sans fil avec réduction de bruit",
+    "image": "assets/img/products/product-1-2.png",
+    "price": 135.00,
+    "brand_id": 2,
+    "category_id": 2
+  },
+  {
+    "id": 3,
+    "title": "Smart Watch Pro",
+    "description": "Montre connectée avec suivi santé avancé",
+    "image": "assets/img/products/product-1-3.png",
+    "price": 199.00,
+    "brand_id": 3,
+    "category_id": 3
+  }
+]

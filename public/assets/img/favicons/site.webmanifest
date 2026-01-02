@@ -1,0 +1,15 @@
+{
+  "name": "Club Mobile Electronics",
+  "short_name": "CME",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d6efd",
+  "icons": [
+    {
+      "src": "/assets/img/banner/6400254.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}

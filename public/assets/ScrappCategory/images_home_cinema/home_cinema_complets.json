@@ -1,0 +1,67 @@
+[
+  {
+    "id": "cuisine_001",
+    "titre": "HOME CINEMA LG 1000 WATT LDH71C",
+    "url": "https://www.baramboupelectronics.com/product/home-cinema-lg-1000-watt-ldh71c/",
+    "categorie": "cuisiniere",
+    "description": "Type de Produit: Home Cinéma – Marque: LG – Modèle: lHD-71 – Catégorie: Electronique – Puissance de sortie: 1000W – Résolution: 1080p 24/60Hz – Technologie du Karaoké: Oui – Connectivité: Bluetooth, USB, Radio, HDMI",
+    "images": [
+      "images_home_cinema/cuisiniere_1_0.jpg",
+      "images_home_cinema/cuisiniere_1_1.jpg"
+    ],
+    "image_principale": "images_home_cinema/cuisiniere_1_0.jpg",
+    "date_extraction": "2025-12-18 17:55:54"
+  },
+  {
+    "id": "cuisine_002",
+    "titre": "HOME CINEMA LG 1000 WATT LHD657M",
+    "url": "https://www.baramboupelectronics.com/product/home-cinema-lg-1000-watt-lhd657m/",
+    "categorie": "cuisiniere",
+    "description": "Type de produit : Home cinéma Canaux : 5.1 Type de lecteur de disque : Lecteur DVD Puissance : 1000 W Nombre d’enceintes : 5 enceintes + 1 Caisson de basse Connectivité : USB, HDMI, BLUETOOTH Type de radio : Tuner radio FM Poids : 7 Kg Dimensions Principale : (360 x 60,5 x 299) mm Haut-parleur avant : (250 x 1100 x 250) mm Haut-parleur central : (260 x 93 x 74) mm Haut-parleur arrière : (250 x 1100 x 250) mm Subwoofer : (191 x 388,5 x 318) mm",
+    "images": [
+      "images_home_cinema/cuisiniere_2_0.jpg"
+    ],
+    "image_principale": "images_home_cinema/cuisiniere_2_0.jpg",
+    "date_extraction": "2025-12-18 17:56:23"
+  },
+  {
+    "id": "cuisine_003",
+    "titre": "HOME CINEMA LG 1250 WATT LHD687BG",
+    "url": "https://www.baramboupelectronics.com/product/home-cinema-lg-1250-watt-lhd687bg/",
+    "categorie": "cuisiniere",
+    "description": "4.2 canaux et 1 250 Watts Double caisson de basses intégré Encombrement réduit et installation simple Diffusion en continu de musique via Bluetooth® TV Sound Sync",
+    "images": [
+      "images_home_cinema/cuisiniere_3_0.jpg",
+      "images_home_cinema/cuisiniere_3_1.jpg",
+      "images_home_cinema/cuisiniere_3_2.jpg"
+    ],
+    "image_principale": "images_home_cinema/cuisiniere_3_0.jpg",
+    "date_extraction": "2025-12-18 17:56:50"
+  },
+  {
+    "id": "cuisine_004",
+    "titre": "HOME CINEMA LG 330WATT LHD457",
+    "url": "https://www.baramboupelectronics.com/product/home-cinema-lg-lhd457/",
+    "categorie": "cuisiniere",
+    "description": "Système Home Cinéma doté d’une puissance de sortie de 330 W, de 5.1 canaux, de Haut-parleurs Jersey, d’un caisson de basses Front Firing 5.1 Canaux et 330 Watts Un caisson de basses front firing Lecture DVD/CD CH5.1 PUISSANCE DE SORTIE TOTALE330 W THD 10 % – Avant G/D42 W x 2 (3Ω : sat / 4Ω : Caisson de basses) – Centre42W (3Ω : sat / 4Ω : Caisson de basses) – Surround G/D42 W x 2 (3Ω : sat / 4Ω : Caisson de basses) – Caisson de basses120 W (Passif)",
+    "images": [
+      "images_home_cinema/cuisiniere_4_0.jpg",
+      "images_home_cinema/cuisiniere_4_1.jpg"
+    ],
+    "image_principale": "images_home_cinema/cuisiniere_4_0.jpg",
+    "date_extraction": "2025-12-18 17:57:16"
+  },
+  {
+    "id": "cuisine_005",
+    "titre": "HOME CINEMA LG AVEC BLUETOOTH 1000WATT LHD655",
+    "url": "https://www.baramboupelectronics.com/product/home-cinema-lg-avec-bluetooth-lhd655/",
+    "categorie": "cuisiniere",
+    "description": "Type de produit : Home cinéma Canaux : 5.1 Type de lecteur de disque : Lecteur DVD Puissance : 1000 W Nombre d’enceintes : 5 enceintes + 1 Caisson de basse Connectivité : USB, HDMI, BLUETOOTH Type de radio : Tuner radio FM Poids : 25KG",
+    "images": [
+      "images_home_cinema/cuisiniere_5_0.jpg",
+      "images_home_cinema/cuisiniere_5_1.jpg"
+    ],
+    "image_principale": "images_home_cinema/cuisiniere_5_0.jpg",
+    "date_extraction": "2025-12-18 17:57:40"
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "cuisine_001",
+    "titre": "🔍",
+    "url": "https://www.baramboupelectronics.com/product/table-televiseur-beige-150x34-tv452-table-basse-120x60-452/#",
+    "categorie": "cuisiniere",
+    "description": "Avis\nIl n’y a pas encore d’avis.\nSOYEZ LE PREMIER À LAISSER VOTRE AVIS SUR “TABLE TELEVISEUR BEIGE 150X34 TV452 + TABLE BASSE 120X60 452”\nVotre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués avec *\nVOTRE NOTE *\n1 2 3 4 5\nVOTRE AVIS *\nNOM *\nE-MAIL  *\nENREGISTRER MON NOM, MON E-MAIL ET MON SITE DANS LE NAVIGATEUR POUR MON PROCHAIN COMMENTAIRE.",
+    "images": [
+      "images_table_tv/cuisiniere_1_0.jpg"
+    ],
+    "image_principale": "images_table_tv/cuisiniere_1_0.jpg",
+    "date_extraction": "2025-12-18 18:41:01"
+  },
+  {
+    "id": "cuisine_002",
+    "titre": "TABLE TELEVISEUR TV UNITE MFC13+MFC37 170X30X45 CM TVBB010",
+    "url": "https://www.baramboupelectronics.com/product/table-televiseur-tv-unite-mfc13mfc37-170x30x45-cm-tvbb010/",
+    "categorie": "cuisiniere",
+    "description": "Avis\nIl n’y a pas encore d’avis.\nSOYEZ LE PREMIER À LAISSER VOTRE AVIS SUR “TABLE TELEVISEUR TV UNITE MFC10/13 180X45X35 CM BLANC GRIS TVB010”\nVotre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués avec *\nVOTRE NOTE *\n1 2 3 4 5\nVOTRE AVIS *\nNOM *\nE-MAIL  *\nENREGISTRER MON NOM, MON E-MAIL ET MON SITE DANS LE NAVIGATEUR POUR MON PROCHAIN COMMENTAIRE.",
+    "images": [
+      "images_table_tv/cuisiniere_2_0.jpg",
+      "images_table_tv/cuisiniere_2_1.jpg"
+    ],
+    "image_principale": "images_table_tv/cuisiniere_2_0.jpg",
+    "date_extraction": "2025-12-18 18:41:51"
+  },
+  {
+    "id": "cuisine_003",
+    "titre": "TABLE TELEVISEUR MARRON BEIGE 150X34 TV431 + TABLE BASSE 120X60 431",
+    "url": "https://www.baramboupelectronics.com/product/table-televiseur-marron-beige-150x34-tv431-table-basse-120x60-431/",
+    "categorie": "cuisiniere",
+    "description": "Avis\nIl n’y a pas encore d’avis.\nSOYEZ LE PREMIER À LAISSER VOTRE AVIS SUR “TABLE TELEVISEUR MARRON BEIGE 150X34 TV431 + TABLE BASSE 120X60 431”\nVotre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués avec *\nVOTRE NOTE *\n1 2 3 4 5\nVOTRE AVIS *\nNOM *\nE-MAIL  *\nENREGISTRER MON NOM, MON E-MAIL ET MON SITE DANS LE NAVIGATEUR POUR MON PROCHAIN COMMENTAIRE.",
+    "images": [
+      "images_table_tv/cuisiniere_3_0.jpg",
+      "images_table_tv/cuisiniere_3_1.jpg"
+    ],
+    "image_principale": "images_table_tv/cuisiniere_3_0.jpg",
+    "date_extraction": "2025-12-18 18:42:37"
+  },
+  {
+    "id": "cuisine_004",
+    "titre": "TABLE TELEVISEUR BLANC MARBRE 200X40X46 TV2032 + TABLE BASSE 130X70 2032",
+    "url": "https://www.baramboupelectronics.com/product/table-televiseur-blanc-marbre-200x40x46-tv2032-table-basse-130x70-2032/",
+    "categorie": "cuisiniere",
+    "description": "DIMENSION TABLE TV : 200X40X46 DIMENSION TABLE BASSE : 130X70",
+    "images": [
+      "images_table_tv/cuisiniere_4_0.jpg"
+    ],
+    "image_principale": "images_table_tv/cuisiniere_4_0.jpg",
+    "date_extraction": "2025-12-18 18:43:11"
+  },
+  {
+    "id": "cuisine_005",
+    "titre": "TABLE TELEVISEUR BLANC MARBRE VERT 200X40X46 TVE66-1 + TABLE BASSE 130X70 E66",
+    "url": "https://www.baramboupelectronics.com/product/table-televiseur-blanc-marbre-vert-200x40x46-tve66-1-table-basse-130x70-e66/",
+    "categorie": "cuisiniere",
+    "description": "DIMENSION TABLE TV : 200X40X46 DIMENSION TABLE BASSE : 130X70",
+    "images": [
+      "images_table_tv/cuisiniere_5_0.jpg",
+      "images_table_tv/cuisiniere_5_1.jpg"
+    ],
+    "image_principale": "images_table_tv/cuisiniere_5_0.jpg",
+    "date_extraction": "2025-12-18 18:43:48"
+  }
+]

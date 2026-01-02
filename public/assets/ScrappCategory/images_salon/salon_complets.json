@@ -1,0 +1,69 @@
+[
+  {
+    "id": "cuisine_001",
+    "titre": "🔍",
+    "url": "https://www.baramboupelectronics.com/product/salon-canape-6places-couleur-au-choix-city/#",
+    "categorie": "cuisiniere",
+    "description": "Canapé CITY 6 places, lignes modernes et épurés Dimensions du canapé 1 Places : Longueur : 120 cm, Largeur : 90cm 2 Places : Longueur : 190 cm, Largeur : 90cm 3 Places 3 Places : 230cm, Largeur : 90cm Assise : Profondeur : 55 cm, Hauteur : 42 cm Le canapé CITY est doté d’un design à la fois minimaliste et classique. Ses larges accoudoirs, son assise épaisse et moelleuse et les matériaux utilisés font de ce modèle un canapé intemporel, confortable et contemporain.",
+    "images": [
+      "images_salon/cuisiniere_1_0.jpg",
+      "images_salon/cuisiniere_1_1.jpg"
+    ],
+    "image_principale": "images_salon/cuisiniere_1_0.jpg",
+    "date_extraction": "2025-12-18 18:30:48"
+  },
+  {
+    "id": "cuisine_002",
+    "titre": "SALON CANAPE 7PLACES COULEUR AU CHOIX CHESTER",
+    "url": "https://www.baramboupelectronics.com/product/salon-canape-7places-couleur-au-choix-chester/",
+    "categorie": "cuisiniere",
+    "description": "Avis\nIl n’y a pas encore d’avis.\nSOYEZ LE PREMIER À LAISSER VOTRE AVIS SUR “SALON CANAPE 7PLACES COULEUR AU CHOIX CHESTER”\nVotre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués avec *\nVOTRE NOTE *\n1 2 3 4 5\nVOTRE AVIS *\nNOM *\nE-MAIL  *\nENREGISTRER MON NOM, MON E-MAIL ET MON SITE DANS LE NAVIGATEUR POUR MON PROCHAIN COMMENTAIRE.",
+    "images": [
+      "images_salon/cuisiniere_2_0.jpg",
+      "images_salon/cuisiniere_2_1.jpg",
+      "images_salon/cuisiniere_2_2.jpg"
+    ],
+    "image_principale": "images_salon/cuisiniere_2_0.jpg",
+    "date_extraction": "2025-12-18 18:31:29"
+  },
+  {
+    "id": "cuisine_003",
+    "titre": "MINI SALON VERT N005",
+    "url": "https://www.baramboupelectronics.com/product/mini-salon-vert-n005/",
+    "categorie": "cuisiniere",
+    "description": "Brand\nAUTRE MARQUE",
+    "images": [
+      "images_salon/cuisiniere_3_0.jpg",
+      "images_salon/cuisiniere_3_1.jpg"
+    ],
+    "image_principale": "images_salon/cuisiniere_3_0.jpg",
+    "date_extraction": "2025-12-18 18:32:04"
+  },
+  {
+    "id": "cuisine_004",
+    "titre": "SALON CANAPE 7PLACES COULEUR AU CHOIX SLOANE",
+    "url": "https://www.baramboupelectronics.com/product/salon-canape-7places-couleur-au-choix-sloane/",
+    "categorie": "cuisiniere",
+    "description": "Avis\nIl n’y a pas encore d’avis.\nSOYEZ LE PREMIER À LAISSER VOTRE AVIS SUR “SALON CANAPE 7PLACES COULEUR AU CHOIX SLOANE”\nVotre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués avec *\nVOTRE NOTE *\n1 2 3 4 5\nVOTRE AVIS *\nNOM *\nE-MAIL  *\nENREGISTRER MON NOM, MON E-MAIL ET MON SITE DANS LE NAVIGATEUR POUR MON PROCHAIN COMMENTAIRE.",
+    "images": [
+      "images_salon/cuisiniere_4_0.jpg",
+      "images_salon/cuisiniere_4_1.jpg",
+      "images_salon/cuisiniere_4_2.jpg"
+    ],
+    "image_principale": "images_salon/cuisiniere_4_0.jpg",
+    "date_extraction": "2025-12-18 18:32:33"
+  },
+  {
+    "id": "cuisine_005",
+    "titre": "SALON CANAPE LIT 3-2-1 6PLACES GRIS SIMILI-CUIR",
+    "url": "https://www.baramboupelectronics.com/product/salon-canape-lit-3-2-1-6places-gris-simili-cuir/",
+    "categorie": "cuisiniere",
+    "description": "MODEL : CANAPE LIT 3PALCES + 2PLACES + 1PLACE",
+    "images": [
+      "images_salon/cuisiniere_5_0.jpg",
+      "images_salon/cuisiniere_5_1.jpg"
+    ],
+    "image_principale": "images_salon/cuisiniere_5_0.jpg",
+    "date_extraction": "2025-12-18 18:33:05"
+  }
+]

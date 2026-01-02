@@ -1,0 +1,57 @@
+[
+  {
+    "id": "cuisine_001",
+    "titre": "SECHE LINGE CANDY 10KG BLANC CS0EC10DGS",
+    "url": "https://www.baramboupelectronics.com/product/seche-linge-candy-10kg-blanc-cs0ec10dgs/",
+    "categorie": "cuisiniere",
+    "description": "Placement de l’appareilAutoportante Type de chargementCharge avant Système de séchagePompe à chaleur Couleur du produitBlanc Type de commandeBoutons, Rotatif Écran integréOui Emplacement charnière de porteGauche Couleur de la porteBlanc Volume du tambour125 L Matériau du tambourGalvanisé Évacuation par condensation intégréeOui CertificationWoolmark Capacité nominale10 kg Classe de séchageB Durée de cycle280 min Niveau sonore66 dB Minuterie, départ différéOui Contrôlé par Wi-FiOui Départ différé24 h Indication du temps restantOui Alarme sonoreOui Pieds réglablesOui Apps de contrôle prises en chargehOn BluetoothOui Classe d’efficacité énergétiqueA++ Consommation d’énergie2,43 kWh Consommation annuelle d’énergie282 kWh Source de chaleurElectrique Plage d’efficacité énergétiqueA+++ à D Tension d’entrée AC220 – 240 V Consommation d’énergie (mode veille)0,75 W Consommation électrique (arrêt)0,4 W Type de priseType F Profondeur585 mm Largeur596 mm Hauteur850 mm Poids41,5 kg Largeur du colis650 mm Profondeur du colis620 mm Hauteur du colis890 mm Poids du paquet43 kg Emplacement du réservoir d’eauDevant Consommation d’énergie par cycle (charge partielle)1,21 kWh",
+    "images": [
+      "images_seche_linge/cuisiniere_1_0.jpg",
+      "images_seche_linge/cuisiniere_1_1.jpg",
+      "images_seche_linge/cuisiniere_1_2.jpg"
+    ],
+    "image_principale": "images_seche_linge/cuisiniere_1_0.jpg",
+    "date_extraction": "2025-12-18 17:32:45"
+  },
+  {
+    "id": "cuisine_002",
+    "titre": "SECHE LINGE ENDURO 10KG GRIS DR10SV",
+    "url": "https://www.baramboupelectronics.com/product/seche-linge-enduro-10kg-gris-dr10sv/",
+    "categorie": "cuisiniere",
+    "description": "Marque: ENDURO Type de produit: SECHE LINGE Capacité de séchage: 10 KG Classe Énergétique : B Tension / frequence : 220-240 V / 50Hz Puissance: 2200W",
+    "images": [
+      "images_seche_linge/cuisiniere_2_0.jpg",
+      "images_seche_linge/cuisiniere_2_1.jpg"
+    ],
+    "image_principale": "images_seche_linge/cuisiniere_2_0.jpg",
+    "date_extraction": "2025-12-18 17:33:12"
+  },
+  {
+    "id": "cuisine_003",
+    "titre": "SECHE LINGE LG 8KG GRIS RC8066C1F",
+    "url": "https://www.baramboupelectronics.com/product/seche-linge-lg-8kg-gris-rc8066c1f/",
+    "categorie": "cuisiniere",
+    "description": "Type de modèle : Charge frontale Couleur : GRIS Capacité de séchage maximale (kg) : 8 kg Type de sécheuse : La condensation Filtre propre : Oui Coton : Oui Tissu mélangé : Oui Entretien facile : Oui Article Bukky : Oui Séchage rapide : Oui Traitement des taches : Oui Rafraîchir : Oui Vêtement de sport : Oui Jeans : Oui Délicat : Oui Laine : Oui Rack Dry : Oui Air froid : Oui Air chaud : Oui Fer : Oui Lumière : Oui Placard : Oui Plus de temps : Oui Moins de temps : Oui Option : Oui Avertisseur sonore : Oui Retard / Anti-plis : Oui Favori : Oui",
+    "images": [
+      "images_seche_linge/cuisiniere_3_0.jpg",
+      "images_seche_linge/cuisiniere_3_1.jpg",
+      "images_seche_linge/cuisiniere_3_2.jpg"
+    ],
+    "image_principale": "images_seche_linge/cuisiniere_3_0.jpg",
+    "date_extraction": "2025-12-18 17:33:32"
+  },
+  {
+    "id": "cuisine_004",
+    "titre": "SECHE LINGE LG 9KG DUAL INVERTER GRIS RH90V9PV8N",
+    "url": "https://www.baramboupelectronics.com/product/seche-linge-lg-9kg-dual-inverter-gris-rh90v9pv8n/",
+    "categorie": "cuisiniere",
+    "description": "Marque : LG Modèle : RH90V9PV8N Voltage : 220-240v Frequence : 50Hz Capacité 9 Kilogrammes Couleur : GRIS Type : chargement frontal Facteur de forme à chargement frontal Emplacement d’accès Chargement frontal Soins contre les allergies Dimensions de l’article LxLxH 60 x 69 x 85 centimètres Poids de l’article 59 kilogrammes",
+    "images": [
+      "images_seche_linge/cuisiniere_4_0.jpg",
+      "images_seche_linge/cuisiniere_4_1.jpg",
+      "images_seche_linge/cuisiniere_4_2.jpg"
+    ],
+    "image_principale": "images_seche_linge/cuisiniere_4_0.jpg",
+    "date_extraction": "2025-12-18 17:33:58"
+  }
+]

@@ -1,0 +1,69 @@
+[
+  {
+    "id": "cuisine_001",
+    "titre": "🔍",
+    "url": "https://www.baramboupelectronics.com/product/armoire-2battants-950x450x750-cm-blanc-arb002/#",
+    "categorie": "cuisiniere",
+    "description": "Description\nDimension : 1m 95",
+    "images": [
+      "images_chambre_a_coucher/cuisiniere_1_0.jpg",
+      "images_chambre_a_coucher/cuisiniere_1_1.jpg",
+      "images_chambre_a_coucher/cuisiniere_1_2.jpg"
+    ],
+    "image_principale": "images_chambre_a_coucher/cuisiniere_1_0.jpg",
+    "date_extraction": "2025-12-18 18:17:41"
+  },
+  {
+    "id": "cuisine_002",
+    "titre": "CHAMBRE A COUCHER 6BATTANTS 5PIECES GRIS CLAIR 908",
+    "url": "https://www.baramboupelectronics.com/product/chambre-a-coucher-6battants-4pieces-gris-clair-908/",
+    "categorie": "cuisiniere",
+    "description": "Description\nChambre à coucher (Lit : 1,8m/2m – Coiffeuse\n2chevets)",
+    "images": [
+      "images_chambre_a_coucher/cuisiniere_2_0.jpg",
+      "images_chambre_a_coucher/cuisiniere_2_1.jpg",
+      "images_chambre_a_coucher/cuisiniere_2_2.jpg"
+    ],
+    "image_principale": "images_chambre_a_coucher/cuisiniere_2_0.jpg",
+    "date_extraction": "2025-12-18 18:18:12"
+  },
+  {
+    "id": "cuisine_003",
+    "titre": "CHAMBRE A COUCHER 6BATTANTS 5PIECES CREME ROMA CAC015",
+    "url": "https://www.baramboupelectronics.com/product/chambre-a-coucher-6battants-5pieces-creme-roma-cac015/",
+    "categorie": "cuisiniere",
+    "description": "Description\nLit 180/200\nArmoire, Hauteur : 2m15 , Largeur : 2m20 , Profondeur : 45cm",
+    "images": [
+      "images_chambre_a_coucher/cuisiniere_3_0.jpg",
+      "images_chambre_a_coucher/cuisiniere_3_1.jpg"
+    ],
+    "image_principale": "images_chambre_a_coucher/cuisiniere_3_0.jpg",
+    "date_extraction": "2025-12-18 18:18:48"
+  },
+  {
+    "id": "cuisine_004",
+    "titre": "CHAMBRE A COUCHER 6BATTANTS 5PIECES BLANC 6002",
+    "url": "https://www.baramboupelectronics.com/product/chambre-a-coucher-6battants-4pieces-blanc-6002/",
+    "categorie": "cuisiniere",
+    "description": "Description\nChambre à coucher (Lit : 1,8m/2m – Coiffeuse\n2chevets)",
+    "images": [
+      "images_chambre_a_coucher/cuisiniere_4_0.jpg",
+      "images_chambre_a_coucher/cuisiniere_4_1.jpg"
+    ],
+    "image_principale": "images_chambre_a_coucher/cuisiniere_4_0.jpg",
+    "date_extraction": "2025-12-18 18:19:10"
+  },
+  {
+    "id": "cuisine_005",
+    "titre": "CHAMBRE A COUCHER ARMOIRE 6BATTANTS 6PIECES BEIGE 6194A",
+    "url": "https://www.baramboupelectronics.com/product/chambre-a-coucher-armoire-6battants-6pieces-beige-6194a/",
+    "categorie": "cuisiniere",
+    "description": "Description\nLIT : L2000 x W1800 x H1220\nTABLE DE CHEVET : L440 x W360 x H450\nCOIFFEUSE : L12000 x W400 x H1700\nARMOIRE : L2130 x W530 x H2080\nRANGEMENT : L550 x W400 x H1000\nBANQUETTE : L1800 x W400 x H420\nMIRROIR : L400 x W400 x H1700",
+    "images": [
+      "images_chambre_a_coucher/cuisiniere_5_0.jpg",
+      "images_chambre_a_coucher/cuisiniere_5_1.jpg"
+    ],
+    "image_principale": "images_chambre_a_coucher/cuisiniere_5_0.jpg",
+    "date_extraction": "2025-12-18 18:19:49"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "cuisine_001",
+    "titre": "🔍",
+    "url": "https://www.baramboupelectronics.com/product/matelas-harmony-orthopedique-140-190/#",
+    "categorie": "cuisiniere",
+    "description": "Ce matelas 100% latex HARMONIE 140 x 190 cm vous offrira un accueil moelleux et un soutien ferme. Sa technologie 100% latex très haute densité (83 kg/m3) couplée à ses 5 zones de soutien vous garantit un confort optimal, notamment pour les dos sensibles. Ce matelas est, de plus, doté de faces différenciées hiver/été pour un confort optimal toute l’année et son coutil stretch, doux au toucher, est traité anti-acariens et antibactérien.",
+    "images": [
+      "images_matelas/cuisiniere_1_0.jpg",
+      "images_matelas/cuisiniere_1_1.jpg"
+    ],
+    "image_principale": "images_matelas/cuisiniere_1_0.jpg",
+    "date_extraction": "2025-12-18 18:59:21"
+  },
+  {
+    "id": "cuisine_002",
+    "titre": "VENTILATEUR SYMPHONY A EAU HUMIDICATEUR DIET 50 i 50LITRES",
+    "url": "https://www.baramboupelectronics.com/product/ventilateur-symphony-a-eau-humidicateur-diet-50-i-50litres/",
+    "categorie": "cuisiniere",
+    "description": "Dimensions du couchage : 160 x 190 cm Type de matelas : Mousse Soutien : Ferme Matelas livré roulé compressé Revêtement – coutil : Coutil 100% polyester",
+    "images": [
+      "images_matelas/cuisiniere_2_0.jpg",
+      "images_matelas/cuisiniere_2_1.jpg"
+    ],
+    "image_principale": "images_matelas/cuisiniere_2_0.jpg",
+    "date_extraction": "2025-12-18 18:59:55"
+  },
+  {
+    "id": "cuisine_003",
+    "titre": "TELEVISEUR WEST 50 » SMART ANDROID 50ZBM1W",
+    "url": "https://www.baramboupelectronics.com/product/televiseur-west-50-smart-android-50zbm1w/",
+    "categorie": "cuisiniere",
+    "description": "Télévision smart android Référence : 50ZBM1W TNT et récepteurs intégrés Dolby Digital Résolution 1366 x 768 3 Ports HDMI 2 Ports USB",
+    "images": [
+      "images_matelas/cuisiniere_3_0.jpg",
+      "images_matelas/cuisiniere_3_1.jpg"
+    ],
+    "image_principale": "images_matelas/cuisiniere_3_0.jpg",
+    "date_extraction": "2025-12-18 19:00:35"
+  },
+  {
+    "id": "cuisine_004",
+    "titre": "MATELAS STARFLEX ORTHOPEDIQUE 160/190",
+    "url": "https://www.baramboupelectronics.com/product/matelas-starflex-orthopedique-160-190-4/",
+    "categorie": "cuisiniere",
+    "description": "Dimensions du couchage : 160 x 190 cm Type de matelas : Mousse Soutien : Ferme Matelas livré roulé compressé Revêtement – coutil : Coutil 100% polyester",
+    "images": [
+      "images_matelas/cuisiniere_4_0.jpg",
+      "images_matelas/cuisiniere_4_1.jpg"
+    ],
+    "image_principale": "images_matelas/cuisiniere_4_0.jpg",
+    "date_extraction": "2025-12-18 19:00:57"
+  },
+  {
+    "id": "cuisine_005",
+    "titre": "TELEVISEUR WEST 32 » SMART ANDROID 32ZBKD18W",
+    "url": "https://www.baramboupelectronics.com/product/televiseur-west-32-smart-android-32zbkd18w/",
+    "categorie": "cuisiniere",
+    "description": "Type de produit: SMART TV Taille d’écran: 32pouces Résolution Full HD Rétroéclairage Led Connectivité: Wifi Connectivité: USB, HDMI, Netflix, YouTube, ect",
+    "images": [
+      "images_matelas/cuisiniere_5_0.jpg",
+      "images_matelas/cuisiniere_5_1.jpg"
+    ],
+    "image_principale": "images_matelas/cuisiniere_5_0.jpg",
+    "date_extraction": "2025-12-18 19:01:31"
+  }
+]

@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Chaussures", "description": "Chaussures sport & running" },
+  { "id": 2, "name": "Audio", "description": "Casques, écouteurs et accessoires" },
+  { "id": 3, "name": "Montres", "description": "Montres connectées et accessoires" }
+]
