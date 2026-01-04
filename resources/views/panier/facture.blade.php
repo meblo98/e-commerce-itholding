@@ -73,8 +73,8 @@
                                     <th style="width: 40%;">Produit</th>
                                     <th style="width: 20%;">Marque</th>
                                     <th style="width: 10%;" class="text-center">Qté</th>
-                                    <th style="width: 15%;" class="text-end">P.U (€)</th>
-                                    <th style="width: 15%;" class="text-end">Total (€)</th>
+                                    <th style="width: 15%;" class="text-end">P.U (FCFA)</th>
+                                    <th style="width: 15%;" class="text-end">Total (FCFA)</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,8 +92,8 @@
                                         <td class="text-center">
                                             <span class="quantity-badge">{{ $item->quantite }}</span>
                                         </td>
-                                        <td class="text-end">{{ number_format($item->produit->prix, 2) }}</td>
-                                        <td class="text-end"><strong>{{ number_format($item->produit->prix * $item->quantite, 2) }}</strong></td>
+                                        <td class="text-end">{{ number_format($item->produit->prix, 0, ',', ' ') }}</td>
+                                        <td class="text-end"><strong>{{ number_format($item->produit->prix * $item->quantite, 0, ',', ' ') }}</strong></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -106,16 +106,12 @@
                             <div class="col-md-5">
                                 <div class="totals-box">
                                     <div class="total-row">
-                                        <span>Sous-total:</span>
-                                        <span>{{ number_format($total, 2) }} €</span>
-                                    </div>
-                                    <div class="total-row">
-                                        <span>TVA (20%):</span>
-                                        <span>{{ number_format($total * 0.20, 2) }} €</span>
+                                        <span>Total:</span>
+                                        <span>{{ number_format($total, 0, ',', ' ') }} FCFA</span>
                                     </div>
                                     <div class="total-row total-final">
-                                        <span>Total TTC:</span>
-                                        <span>{{ number_format($total * 1.20, 2) }} €</span>
+                                        <span>Total à payer:</span>
+                                        <span>{{ number_format($total, 0, ',', ' ') }} FCFA</span>
                                     </div>
                                 </div>
                             </div>

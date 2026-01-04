@@ -17,7 +17,8 @@ return new class extends Migration
             $table->longText('description');
             $table->string("image");
             $table->unsignedBigInteger('categorie_id');
-            $table->unsignedBigInteger('marque_id')->nullable;
+            $table->unsignedBigInteger('marque_id')->nullable();
+            $table->decimal('prix', 12, 2)->default(0);
             $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('marque_id')->references('id')->on('marques')->onDelete('cascade');
             $table->boolean('active')->default(true);

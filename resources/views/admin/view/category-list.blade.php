@@ -42,10 +42,15 @@
                 <!-- all-category -->
                 <div class="wg-box">
                     <div class="flex items-center justify-between gap10 flex-wrap">
-                        <div class="wg-filter flex-grow">
+                        <div class="wg-filter flex-grow flex items-center gap20" style="display:flex; align-items:center;">
                             <div class="show">
                                 <div class="text-tiny">{{ $categories->count() }} catégories</div>
                             </div>
+                            <form class="form-search" onsubmit="return false;" style="margin:0; flex-grow:1; max-width:400px;">
+                                <fieldset class="name" style="margin:0;">
+                                    <input type="text" id="category-search-input" placeholder="Rechercher une catégorie..." class="" name="name" style="height:44px;">
+                                </fieldset>
+                            </form>
                         </div>
                         <a class="tf-button style-1 w208" href="{{ route('admin.categories.create') }}">
                             <i class="icon-plus"></i>Ajouter
@@ -53,10 +58,7 @@
                     </div>
                     <div class="wg-table table-all-category">
                         <ul class="table-title mb-14"
-                            style="display:grid; grid-template-columns: 80px 1fr 1.5fr 120px; column-gap: 20px; align-items: center;">
-                            <li>
-                                <div class="body-title">ID</div>
-                            </li>
+                            style="display:grid; grid-template-columns: 1fr 1.5fr 120px; column-gap: 20px; align-items: center;">
                             <li>
                                 <div class="body-title">Titre</div>
                             </li>
@@ -70,11 +72,8 @@
                         <div class="divider mb-14"></div>
 
                         @forelse ($categories as $categorie)
-                            <ul class="mb-14"
-                                style="display:grid; grid-template-columns: 80px 1fr 1.5fr 120px; column-gap: 20px; align-items: center;">
-                                <li>
-                                    <div class="body-title-2">#{{ $categorie->id }}</div>
-                                </li>
+                            <ul class="mb-14 category-item"
+                                style="display:grid; grid-template-columns: 1fr 1.5fr 120px; column-gap: 20px; align-items: center;">
                                 <li>
                                     <div class="body-title">{{ $categorie->titre }}</div>
                                 </li>
@@ -159,6 +158,46 @@
             confirmBtn.addEventListener('click', () => {
                 if (pendingForm) pendingForm.submit();
             });
+
+            // --- LOGIQUE DE RECHERCHE AUTOMATIQUE ---
+            const categorySearchInput = document.getElementById('category-search-input');
+            const headerSearchInput = document.getElementById('header-search-input');
+            const categoryItems = document.querySelectorAll('.category-item');
+
+            function filterCategories(filter) {
+                filter = filter.toLowerCase().trim();
+                categoryItems.forEach(item => {
+                    const titleEl = item.querySelector('.body-title');
+                    const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+                    
+                    const descEl = item.querySelector('.body-text');
+                    const desc = descEl ? descEl.textContent.toLowerCase() : '';
+                    
+                    if (title.includes(filter) || desc.includes(filter)) {
+                        item.style.display = 'grid';
+                        if (item.nextElementSibling && item.nextElementSibling.classList.contains('divider')) {
+                            item.nextElementSibling.style.display = 'block';
+                        }
+                    } else {
+                        item.style.display = 'none';
+                        if (item.nextElementSibling && item.nextElementSibling.classList.contains('divider')) {
+                            item.nextElementSibling.style.display = 'none';
+                        }
+                    }
+                });
+            }
+
+            if (categorySearchInput) {
+                categorySearchInput.addEventListener('input', function() {
+                    filterCategories(this.value);
+                });
+            }
+
+            if (headerSearchInput) {
+                headerSearchInput.addEventListener('input', function() {
+                    filterCategories(this.value);
+                });
+            }
         });
     </script>
 @endpush

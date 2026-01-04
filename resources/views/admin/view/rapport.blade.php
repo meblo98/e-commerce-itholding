@@ -258,9 +258,6 @@
                     <div class="wg-table table-all-attribute">
                         <ul class="table-title flex gap20 mb-14">
                             <li>
-                                <div class="body-title">Transfer Id</div>
-                            </li>
-                            <li>
                                 <div class="body-title">Name</div>
                             </li>
                             <li>
@@ -274,8 +271,7 @@
                             </li>
                         </ul>
                         <ul class="flex flex-column">
-                            <li class="attribute-item flex items-center justify-between gap20">
-                                <div class="body-text">11081197</div>
+                            <li class="attribute-item flex items-center justify-between gap20 js-search-item">
                                 <div class="body-text">Kathryn Murphy</div>
                                 <div class="body-text">Mar 20, 2023</div>
                                 <div class="body-text">$2,700</div>
@@ -483,3 +479,30 @@
         <!-- /bottom-page -->
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var headerSearchInput = document.getElementById('header-search-input');
+            var searchItems = document.querySelectorAll('.js-search-item');
+
+            function filterItems(filter) {
+                filter = filter.toLowerCase().trim();
+                searchItems.forEach(function(item) {
+                    var text = item.textContent.toLowerCase();
+                    if (text.includes(filter)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            if (headerSearchInput) {
+                headerSearchInput.addEventListener('input', function() {
+                    filterItems(this.value);
+                });
+            }
+        });
+    </script>
+@endpush

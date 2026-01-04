@@ -78,10 +78,15 @@
                 <!-- all-marque -->
                 <div class="wg-box">
                     <div class="flex items-center justify-between gap10 flex-wrap">
-                        <div class="wg-filter flex-grow">
+                        <div class="wg-filter flex-grow flex items-center gap20" style="display:flex; align-items:center;">
                             <div class="show">
                                 <div class="text-tiny">{{ $marques->count() }} marques</div>
                             </div>
+                            <form class="form-search" onsubmit="return false;" style="margin:0; flex-grow:1; max-width:400px;">
+                                <fieldset class="name" style="margin:0;">
+                                    <input type="text" id="marque-search-input" placeholder="Rechercher une marque..." class="" name="name" style="height:44px;">
+                                </fieldset>
+                            </form>
                         </div>
                         <a class="tf-button style-1 w208" href="{{ route('admin.marques.create') }}">
                             <i class="icon-plus"></i>Ajouter
@@ -173,7 +178,38 @@
             confirmBtn.addEventListener('click', () => {
                 if (pendingForm) pendingForm.submit();
             });
-        });
+
+            // --- LOGIQUE DE RECHERCHE AUTOMATIQUE
+                const marqueSearchInput = document.getElementById('marque-search-input');
+                const headerSearchInput = document.getElementById('header-search-input');
+                const marqueItems = document.querySelectorAll('.marque-card');
+
+                function filterMarques(filter) {
+                    filter = filter.toLowerCase().trim();
+                    marqueItems.forEach(item => {
+                        const nameEl = item.querySelector('.body-title');
+                        const name = nameEl ? nameEl.textContent.toLowerCase() : '';
+                        
+                        if (name.includes(filter)) {
+                            item.style.display = 'flex';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                }
+
+                if (marqueSearchInput) {
+                    marqueSearchInput.addEventListener('input', function() {
+                        filterMarques(this.value);
+                    });
+                }
+
+                if (headerSearchInput) {
+                    headerSearchInput.addEventListener('input', function() {
+                        filterMarques(this.value);
+                    });
+                }
+            });
     </script>
 @endpush
     {{-- <!-- main-content -->

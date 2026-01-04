@@ -37,7 +37,9 @@
                                 <thead>
                                     <tr>
                                         <th>Produit</th>
+                                        <th>Prix unitaire</th>
                                         <th>Quantité</th>
+                                        <th>Sous-total</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -53,6 +55,9 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        <td class="align-middle fw-bold">
+                                            {{ number_format($item->produit->prix, 0, ',', ' ') }} FCFA
+                                        </td>
                                         <td class="align-middle">
                                             <div class="d-inline-flex align-items-center gap-2">
                                                 <!-- Moins -->
@@ -64,10 +69,10 @@
                                                         <span aria-hidden="true">−</span>
                                                     </button>
                                                 </form>
-
+ 
                                                 <!-- Quantité affichée -->
                                                 <span class="fw-semibold">{{ $item->quantite }}</span>
-
+ 
                                                 <!-- Plus -->
                                                 <form action="{{ route('panier.update', $item->id) }}" method="POST">
                                                     @method('PUT')
@@ -78,6 +83,9 @@
                                                     </button>
                                                 </form>
                                             </div>
+                                        </td>
+                                        <td class="align-middle fw-bold text-primary">
+                                            {{ number_format($item->produit->prix * $item->quantite, 0, ',', ' ') }} FCFA
                                         </td>
                                         <td class="align-middle">
                                             <form action="{{ route('panier.remove', $item->id) }}" method="POST">
@@ -110,6 +118,12 @@
                         <div class="d-flex justify-content-between mb-3">
                             <span>Nombre d'articles:</span>
                             <strong>{{ $panierItems->sum('quantite') }}</strong>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Total:</span>
+                            <strong class="text-primary fs-5">
+                                {{ number_format($panierItems->sum(function($item) { return $item->produit->prix * $item->quantite; }), 0, ',', ' ') }} FCFA
+                            </strong>
                         </div>
                         <hr>
                         <div class="d-grid gap-3 mt-4">

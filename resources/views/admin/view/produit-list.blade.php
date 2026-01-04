@@ -55,81 +55,79 @@
                                 </div>
                                 <div class="text-tiny">entries</div>
                             </div>
-                            <form class="form-search">
+                            <form class="form-search" onsubmit="return false;">
                                 <fieldset class="name">
-                                    <input type="text" placeholder="Search here..." class="" name="name" tabindex="2"
-                                        value="" aria-required="true" required="">
+                                    <input type="text" id="product-search-input" placeholder="Search here..." class="" name="name" tabindex="2"
+                                        value="" aria-required="true">
                                 </fieldset>
                                 <div class="button-submit">
-                                    <button class="" type="submit"><i class="icon-search"></i></button>
+                                    <button class="" type="button"><i class="icon-search"></i></button>
                                 </div>
                             </form>
                         </div>
                         <a class="tf-button style-1 w208" href="{{ route('admin.produits.create') }}"><i class="icon-plus"></i>Ajouter produit</a>
                     </div>
                     <div class="wg-table table-product-list">
-                        <ul class="table-title flex gap20 mb-14">
+                        <ul class="table-title mb-14" style="display:grid; grid-template-columns: 80px 1.5fr 2fr 1.2fr 1fr 80px 120px 80px 100px; column-gap: 20px; align-items: center;">
                             <li>
-                                <div class="body-title">image</div>
+                                <div class="body-title">Image</div>
                             </li>
                             <li>
-                                <div class="body-title">id</div>
+                                <div class="body-title">Nom</div>
                             </li>
                             <li>
-                                <div class="body-title">nom</div>
+                                <div class="body-title">Description</div>
                             </li>
                             <li>
-                                <div class="body-title">description</div>
+                                <div class="body-title">Catégorie</div>
                             </li>
                             <li>
-                                <div class="body-title">categorie_id</div>
+                                <div class="body-title">Marque</div>
                             </li>
                             <li>
-                                <div class="body-title">marque</div>
+                                <div class="body-title">Stock</div>
                             </li>
                             <li>
-                                <div class="body-title">stock</div>
+                                <div class="body-title">Prix</div>
                             </li>
                             <li>
-                                <div class="body-title">active</div>
+                                <div class="body-title">Statut</div>
                             </li>
                             <li>
-                                <div class="body-title">Action</div>
+                                <div class="body-title text-center">Action</div>
                             </li>
                         </ul>
                         <ul class="flex flex-column">
                             @forelse($produits as $produit)
-                                <li class="product-item gap14">
-                                    <div class="image no-bg">
-                                        @php($img = $produit->image ? asset('storage/'.$produit->image) : asset('assets/img/placeholder.png'))
-                                        <img src="{{ $img }}" alt="{{ $produit->nom }}">
+                                <li class="product-item mb-10" style="display:grid; grid-template-columns: 80px 1.5fr 2fr 1.2fr 1fr 80px 120px 80px 100px; column-gap: 20px; align-items: center;">
+                                    <div class="image no-bg" style="width: 60px; height: 60px; margin: 0;">
+                                        @php($img = ($produit->image && $produit->image !== 'placeholder.png') ? asset('storage/'.$produit->image) : asset('assets/img/placeholder.png'))
+                                        <img src="{{ $img }}" alt="{{ $produit->nom }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                                     </div>
-                                    <div class="flex items-center justify-between gap20 flex-grow">
-                                        <div class="body-text">#{{ $produit->id }}</div>
-                                        <div class="name">
-                                            <span class="body-title-2">{{ $produit->nom }}</span>
-                                        </div>
-                                        <div class="body-text" style="max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                            {{ $produit->description }}
-                                        </div>
-                                        <div class="body-text">{{ $produit->categorie_id }}</div>
-                                        <div class="body-text">{{ $produit->marque->nom ?? '—' }}</div>
-                                        <div class="body-text">{{ $produit->stock }}</div>
-                                        <div>
-                                            @if($produit->active)
-                                                <div class="block-available">Actif</div>
-                                            @else
-                                                <div class="block-not-available">Inactif</div>
-                                            @endif
-                                        </div>
-                                        <div class="list-icon-function">
-                                            <a href="{{ route('admin.produits.edit', $produit) }}" class="item edit"><i class="icon-edit-3"></i></a>
-                                            <form method="POST" action="{{ route('admin.produits.destroy', $produit) }}" style="display:inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="button" class="item trash js-delete-btn" style="border:none; background:none; cursor:pointer;"><i class="icon-trash-2"></i></button>
-                                            </form>
-                                        </div>
+                                    <div class="name">
+                                        <span class="body-title-2">{{ $produit->nom }}</span>
+                                    </div>
+                                    <div class="body-text" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        {{ $produit->description }}
+                                    </div>
+                                    <div class="body-text">{{ $produit->categorie->titre ?? $produit->categorie_id }}</div>
+                                    <div class="body-text">{{ $produit->marque->nom ?? '—' }}</div>
+                                    <div class="body-text">{{ $produit->stock }}</div>
+                                    <div class="body-text" style="font-weight: 600;">{{ number_format($produit->prix, 0, ',', ' ') }} FCFA</div>
+                                    <div>
+                                        @if($produit->active)
+                                            <div class="block-available">Actif</div>
+                                        @else
+                                            <div class="block-not-available">Inactif</div>
+                                        @endif
+                                    </div>
+                                    <div class="list-icon-function justify-center">
+                                        <a href="{{ route('admin.produits.edit', $produit) }}" class="item edit"><i class="icon-edit-3"></i></a>
+                                        <form method="POST" action="{{ route('admin.produits.destroy', $produit) }}" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="item trash js-delete-btn" style="border:none; background:none; cursor:pointer;"><i class="icon-trash-2"></i></button>
+                                        </form>
                                     </div>
                                 </li>
                             @empty
@@ -283,6 +281,47 @@
                                 closeModal();
                             }
                         });
+
+                        // --- LOGIQUE DE RECHERCHE AUTOMATIQUE ---
+                        var searchInput = document.getElementById('product-search-input');
+                        var headerSearchInput = document.getElementById('header-search-input');
+                        var productItems = document.querySelectorAll('.product-item');
+
+                        function filterProducts(filter) {
+                            filter = filter.toLowerCase().trim();
+                            productItems.forEach(function(item) {
+                                if (item.querySelector('.py-20')) return;
+
+                                var nameEl = item.querySelector('.name .body-title-2');
+                                var name = nameEl ? nameEl.textContent.toLowerCase() : '';
+                                
+                                var descEl = item.querySelector('.body-text');
+                                var desc = descEl ? descEl.textContent.toLowerCase() : '';
+                                
+                                if (name.includes(filter) || desc.includes(filter)) {
+                                    item.style.display = 'flex';
+                                } else {
+                                    item.style.display = 'none';
+                                }
+                            });
+                        }
+
+                        if (searchInput) {
+                            searchInput.addEventListener('input', function() {
+                                filterProducts(this.value);
+                            });
+                        }
+
+                        if (headerSearchInput) {
+                            headerSearchInput.addEventListener('input', function() {
+                                filterProducts(this.value);
+                            });
+                        }
+                        // Gérer l'affichage du message "Aucun résultat" si nécessaire
+                        // var visibleItems = Array.from(productItems).filter(item => 
+                        //     item.style.display !== 'none' && !item.querySelector('.py-20')
+                        // );
+                        // On pourrait ajouter un message dynamique ici si tous sont cachés
                     });
                 </script>
         </div>

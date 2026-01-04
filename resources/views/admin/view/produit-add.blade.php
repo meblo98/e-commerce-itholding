@@ -80,11 +80,18 @@
                                 </div>
                             </fieldset>
                         </div>
-                        <fieldset class="stock">
-                            <div class="body-title mb-10">Stock <span class="tf-color-1">*</span></div>
-                            <input class="flex-grow mb-10" type="number" placeholder="Quantité en stock" name="stock" tabindex="0"
-                                value="{{ old('stock', 0) }}" aria-required="true" required="" min="0">
-                        </fieldset>
+                        <div class="gap22 cols">
+                            <fieldset class="stock">
+                                <div class="body-title mb-10">Stock <span class="tf-color-1">*</span></div>
+                                <input class="flex-grow mb-10" type="number" placeholder="Quantité en stock" name="stock" tabindex="0"
+                                    value="{{ old('stock', 0) }}" aria-required="true" required="" min="0">
+                            </fieldset>
+                            <fieldset class="price">
+                                <div class="body-title mb-10">Prix (FCFA) <span class="tf-color-1">*</span></div>
+                                <input class="flex-grow mb-10" type="number" placeholder="Prix du produit" name="prix" tabindex="0"
+                                    value="{{ old('prix', 0) }}" aria-required="true" required="" min="0">
+                            </fieldset>
+                        </div>
                         <fieldset class="description">
                             <div class="body-title mb-10">Description <span class="tf-color-1">*</span></div>
                             <textarea class="mb-10" name="description" placeholder="Description complète du produit" tabindex="0"

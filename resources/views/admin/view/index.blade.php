@@ -429,7 +429,8 @@
                                 @forelse($recentProduits as $produit)
                                     <li class="product-item">
                                         <div class="image small no-bg">
-                                            <img src="{{ asset('storage/' . $produit->image) }}" alt="{{ $produit->nom }}" loading="lazy">
+                                            @php($img = ($produit->image && $produit->image !== 'placeholder.png') ? asset('storage/'.$produit->image) : asset('assets/img/placeholder.png'))
+                                            <img src="{{ $img }}" alt="{{ $produit->nom }}" loading="lazy">
                                         </div>
                                         <div class="flex items-center justify-between flex-grow">
                                             <div class="name">

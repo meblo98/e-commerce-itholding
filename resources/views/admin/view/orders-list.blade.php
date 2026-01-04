@@ -38,13 +38,13 @@
                 <div class="wg-box">
                     <div class="flex items-center justify-between gap10 flex-wrap">
                         <div class="wg-filter flex-grow">
-                            <form class="form-search">
+                            <form class="form-search" onsubmit="return false;">
                                 <fieldset class="name">
-                                    <input type="text" placeholder="Search here..." class="" name="name" tabindex="2"
-                                        value="" aria-required="true" required="">
+                                    <input type="text" id="order-search-input" placeholder="Search here..." class="" name="name" tabindex="2"
+                                        value="" aria-required="true">
                                 </fieldset>
                                 <div class="button-submit">
-                                    <button class="" type="submit"><i class="icon-search"></i></button>
+                                    <button class="" type="button"><i class="icon-search"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -55,9 +55,6 @@
                         <ul class="table-title flex gap20 mb-14">
                             <li>
                                 <div class="body-title">Product</div>
-                            </li>
-                            <li>
-                                <div class="body-title">Order ID</div>
                             </li>
                             <li>
                                 <div class="body-title">Price</div>
@@ -87,7 +84,6 @@
                                     <div class="name">
                                         <a href="product-list.html" class="body-title-2">Kristin Watson</a>
                                     </div>
-                                    <div class="body-text">#7712309</div>
                                     <div class="body-text">$1,452.500</div>
                                     <div class="body-text">1,638</div>
                                     <div class="body-text">20</div>
@@ -429,3 +425,39 @@
     </div>
 
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var searchInput = document.getElementById('order-search-input');
+            var headerSearchInput = document.getElementById('header-search-input');
+            var orderItems = document.querySelectorAll('.product-item');
+
+            function filterOrders(filter) {
+                filter = filter.toLowerCase().trim();
+                orderItems.forEach(function(item) {
+                    var nameEl = item.querySelector('.name');
+                    var name = nameEl ? nameEl.textContent.toLowerCase() : '';
+                    
+                    if (name.includes(filter)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    filterOrders(this.value);
+                });
+            }
+
+            if (headerSearchInput) {
+                headerSearchInput.addEventListener('input', function() {
+                    filterOrders(this.value);
+                });
+            }
+        });
+    </script>
+@endpush

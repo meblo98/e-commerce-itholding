@@ -49,7 +49,7 @@
                                         <h3 class="xc-product-two__title">
                                             <a href="#">{{ $produit->nom }}</a>
                                         </h3>
-                                        <h4 class="xc-product-two__price">{{ $produit->categorie->titre ?? '—' }}</h4>
+                                        <h4 class="xc-product-two__price">{{ number_format($produit->prix, 0, ',', ' ') }} FCFA</h4>
                                         <div class="xc-product-two__btn">
                                             <a href="{{ url('/produit/'.$produit->id) }}"><i class="icon-eye"></i></a>
                                         </div>
@@ -207,7 +207,7 @@
                                 <h3 class="xc-product-two__title">
                                     <a href="#">{{ $produit->nom }}</a>
                                 </h3>
-                                <h4 class="xc-product-two__price">{{ $produit->categorie->titre ?? '—' }}</h4>
+                                <h4 class="xc-product-two__price">{{ number_format($produit->prix, 0, ',', ' ') }} FCFA</h4>
                                 <div class="xc-product-two__btn">
                                     <a href="{{ url('/produit/'.$produit->id) }}"><i class="icon-eye"></i></a>
                                 </div>

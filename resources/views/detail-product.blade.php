@@ -71,6 +71,9 @@
                                         <span>18 In Stock</span>
                                     </div> -->
                         <h3 class="product__details-title">{{ $produit->nom ?? 'Produit' }}</h3>
+                        <h4 class="product__details-price text-primary mb-3">
+                            {{ number_format($produit->prix, 0, ',', ' ') }} FCFA
+                        </h4>
 
                         <div class="product__details-rating d-flex align-items-center">
                             <div class="product__rating product__rating-2 d-flex">

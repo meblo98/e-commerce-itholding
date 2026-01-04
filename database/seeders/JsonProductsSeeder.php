@@ -120,6 +120,7 @@ class JsonProductsSeeder extends Seeder
         'marque_id' => null, // Pas de marque
         'active' => true,
         'stock' => rand(5, 50), // Stock aléatoire entre 5 et 50
+        'prix' => rand(50, 2000) * 1000,
     ]);
 
     // Créer une entrée dans la table images

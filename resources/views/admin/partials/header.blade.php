@@ -12,10 +12,10 @@
             <div class="button-show-hide">
                 <i class="icon-menu-left"></i>
             </div>
-            <form class="form-search flex-grow">
+            <form class="form-search flex-grow" onsubmit="return false;">
                 <fieldset class="name">
-                    <input type="text" placeholder="Search here... basse" class="show-search" name="name" tabindex="2"
-                        value="" aria-required="true" required="">
+                    <input type="text" id="header-search-input" placeholder="Search here..." class="show-search" name="name" tabindex="2"
+                        value="" aria-required="true">
                 </fieldset>
                 <div class="button-submit">
                     <button class="" type="submit"><i class="icon-search"></i></button>

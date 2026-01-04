@@ -67,6 +67,7 @@ class ProduitSeeder extends Seeder
                     'marque_id' => $defaultMarque->id,
                     'active' => true,
                     'stock' => rand(5, 30),
+                    'prix' => rand(15, 1500) * 1000,
                 ]);
             }
         }
@@ -117,6 +118,7 @@ class ProduitSeeder extends Seeder
                     'marque_id' => $defaultMarque->id,
                     'active' => true,
                     'stock' => rand(5, 30),
+                    'prix' => rand(15, 1500) * 1000,
                 ]);
             }
         }
@@ -145,6 +147,7 @@ class ProduitSeeder extends Seeder
                 'marque_id' => $hp->id ?? null,
                 'active' => true,
                 'stock' => 15,
+                'prix' => 850000,
             ],
             [
                 'nom' => 'Dell XPS 13',
@@ -154,6 +157,7 @@ class ProduitSeeder extends Seeder
                 'marque_id' => $dell->id ?? null,
                 'active' => true,
                 'stock' => 10,
+                'prix' => 750000,
             ],
             [
                 'nom' => 'MacBook Pro 14" M1 Pro',
@@ -163,6 +167,7 @@ class ProduitSeeder extends Seeder
                 'marque_id' => $apple->id ?? null,
                 'active' => true,
                 'stock' => 5,
+                'prix' => 1450000,
             ],
             [
                 'nom' => 'Lenovo ThinkCentre M70q',
@@ -172,6 +177,7 @@ class ProduitSeeder extends Seeder
                 'marque_id' => $lenovo->id ?? null,
                 'active' => true,
                 'stock' => 12,
+                'prix' => 450000,
             ],
             [
                 'nom' => 'Epson EcoTank L3210',
@@ -181,6 +187,7 @@ class ProduitSeeder extends Seeder
                 'marque_id' => $epson->id ?? null,
                 'active' => true,
                 'stock' => 20,
+                'prix' => 225000,
             ],
         ];
 

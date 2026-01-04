@@ -46,6 +46,7 @@ class AdminProduitController extends Controller
             'marque_id' => 'nullable|exists:marques,id',
             'active' => 'nullable|boolean',
             'stock' => 'required|integer|min:0',
+            'prix' => 'required|numeric|min:0',
         ]);
 
         $imagePath = null;
@@ -59,6 +60,7 @@ class AdminProduitController extends Controller
             'marque_id' => $request->filled('marque_id') ? $request->input('marque_id') : null,
             'active' => $request->has('active') ? 1 : 0,
             'stock' => $request->input('stock'),
+            'prix' => $request->input('prix'),
         ]);
 
         // Stocker toutes les images
@@ -104,6 +106,7 @@ class AdminProduitController extends Controller
             'marque_id' => 'nullable|exists:marques,id',
             'active' => 'nullable|boolean',
             'stock' => 'required|integer|min:0',
+            'prix' => 'required|numeric|min:0',
         ]);
 
         $produit->update([
@@ -113,6 +116,7 @@ class AdminProduitController extends Controller
             'marque_id' => $request->filled('marque_id') ? $request->input('marque_id') : null,
             'active' => $request->has('active') ? 1 : 0,
             'stock' => $request->input('stock'),
+            'prix' => $request->input('prix'),
         ]);
 
         // Ajouter les nouvelles images
@@ -120,6 +124,12 @@ class AdminProduitController extends Controller
             $maxOrdre = $produit->images()->max('ordre') ?? -1;
             foreach ($request->file('images') as $index => $file) {
                 $chemin = $file->store('produits', 'public');
+                
+                // Si l'image principale est un placeholder, on utilise la première nouvelle image
+                if ($produit->image === 'placeholder.png' && $index === 0) {
+                    $produit->update(['image' => $chemin]);
+                }
+
                 Image::create([
                     'produit_id' => $produit->id,
                     'chemin' => $chemin,

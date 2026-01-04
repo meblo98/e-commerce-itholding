@@ -101,7 +101,7 @@
                                                         <a href="{{ url('/produit/'.$p->id) }}">{{ $p->nom }}</a>
                                                     </h3>
                                                     <h4 class="xc-product-two__price">
-                                                        {{ $p->categorie->titre ?? '—' }}
+                                                        {{ number_format($p->prix, 0, ',', ' ') }} FCFA
                                                     </h4>
                                                     <div class="xc-product-two__btn">
                                                         <a href="{{ url('/produit/'.$p->id) }}"><i class="icon-eye"></i></a>
@@ -144,7 +144,7 @@
                                                 <a href="{{ url('/produit/'.$p->id) }}">{{ $p->nom }}</a>
                                             </h3>
                                             <h4 class="xc-product-two__price">
-                                                {{ $p->marque->nom ?? '—' }}
+                                                {{ number_format($p->prix, 0, ',', ' ') }} FCFA
                                             </h4>
                                             <div class="xc-product-two__btn">
                                                 <a href="{{ url('/produit/'.$p->id) }}"><i class="icon-eye"></i></a>
