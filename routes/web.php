@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminCategorieController;
+use App\Http\Controllers\Admin\AdminCommandeController;
 use App\Http\Controllers\Admin\AdminMarqueController;
 use App\Http\Controllers\Admin\AdminProduitController;
 use App\Http\Controllers\Auth\LoginController;
@@ -97,13 +98,13 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
     Route::delete('/category/{categorie}', [AdminCategorieController::class, 'destroy'])->name('admin.categories.destroy');
     Route::get('/category-detail/{categorie}', [AdminCategorieController::class, 'show'])->name('admin.categories.show');
 
-    // Commandes (admin - vues statiques)
-    Route::get('/commande-list', function () {
-        return view('Admin.view.orders-list');
-    });
-    Route::get('/commande-details', function () {
-        return view('Admin.view.orders-details');
-    });
+    // Commandes (admin)
+    Route::get('/commande-list', [AdminCommandeController::class, 'index'])->name('admin.commandes.index');
+    Route::get('/commande/{commande}', [AdminCommandeController::class, 'show'])->name('admin.commandes.show');
+    Route::put('/commande/{commande}/status', [AdminCommandeController::class, 'updateStatus'])->name('admin.commandes.updateStatus');
+    Route::put('/commande/{commande}/tracking', [AdminCommandeController::class, 'updateTracking'])->name('admin.commandes.updateTracking');
+    Route::delete('/commande/{commande}', [AdminCommandeController::class, 'destroy'])->name('admin.commandes.destroy');
+    Route::get('/commandes/export', [AdminCommandeController::class, 'export'])->name('admin.commandes.export');
 
     // Utilisateurs (admin)
     Route::get('/user-list', [UserController::class, 'index'])->name('admin.users.index');

@@ -132,6 +132,12 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li class="menu-item {{ request()->is('commande-*') ? 'active' : '' }}">
+                                    <a href="{{ route('admin.commandes.index') }}" class="">
+                                        <div class="icon"><i class="icon-file-text"></i></div>
+                                        <div class="text">Commandes</div>
+                                    </a>
+                                </li>
                                 <li class="menu-item has-children {{ request()->is('user-*') ? 'active' : '' }}">
                                     <a href="javascript:void(0);" class="menu-item-button">
                                         <div class="icon"><i class="icon-user"></i></div>

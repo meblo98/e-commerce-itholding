@@ -134,16 +134,16 @@
                                                     </linearGradient>
                                                 </defs>
                                             </svg>
-                                            <i class="icon-users"></i>
+                                            <i class="icon-shopping-cart"></i>
                                         </div>
                                         <div>
-                                            <div class="body-text mb-2">Total Utilisateurs</div>
-                                            <h4>{{ number_format($totalUsers) }}</h4>
+                                            <div class="body-text mb-2">Total Commandes</div>
+                                            <h4>{{ number_format($totalCommandes) }}</h4>
                                         </div>
                                     </div>
                                     <div class="box-icon-trending up">
                                         <i class="icon-trending-up"></i>
-                                        <div class="body-title number">1.56%</div>
+                                        <div class="body-title number">{{ $commandesEnAttente }} en attente</div>
                                     </div>
                                 </div>
                                 <div class="wrap-chart">
@@ -229,170 +229,58 @@
                     </div>
                     <!-- /earnings -->
                 </div>
-                {{-- <div class="tf-section mb-30">
+                <div class="tf-section mb-30">
                     <!-- orders -->
                     <div class="wg-box">
                         <div class="flex items-center justify-between">
-                            <h5>Recent orders</h5>
+                            <h5>Commandes récentes</h5>
                             <div class="dropdown default">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <span class="view-all">View all<i class="icon-chevron-down"></i></span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li>
-                                        <a href="javascript:void(0);">3 days</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">7 days</a>
-                                    </li>
-                                </ul>
+                                <a href="{{ route('admin.commandes.index') }}" class="view-all">Voir tout<i class="icon-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="wg-table table-product-overview t2">
                             <ul class="table-title flex gap20 mb-14">
                                 <li>
-                                    <div class="body-title">Product</div>
+                                    <div class="body-title">Numéro</div>
                                 </li>
                                 <li>
-                                    <div class="body-title">Customer</div>
+                                    <div class="body-title">Client</div>
                                 </li>
                                 <li>
-                                    <div class="body-title">Product ID</div>
+                                    <div class="body-title">Total</div>
                                 </li>
                                 <li>
-                                    <div class="body-title">Quantity</div>
+                                    <div class="body-title">Statut</div>
                                 </li>
                                 <li>
-                                    <div class="body-title">Price</div>
-                                </li>
-                                <li>
-                                    <div class="body-title">Status</div>
+                                    <div class="body-title">Date</div>
                                 </li>
                             </ul>
                             <div class="divider mb-14"></div>
                             <ul class="flex flex-column gap10">
-                                <li class="product-item gap14">
-                                    <div class="image no-bg">
-                                        <img src="images/products/31.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between flex-grow gap20">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-title-2">Taste of the Wild Formula
-                                                Finder</a>
+                                @forelse($recentCommandes as $commande)
+                                    <li class="product-item gap14">
+                                        <div class="flex items-center justify-between flex-grow gap20">
+                                            <div class="name">
+                                                <a href="{{ route('admin.commandes.show', $commande) }}" class="body-title-2">{{ $commande->numero_commande }}</a>
+                                            </div>
+                                            <div class="body-text">{{ $commande->nom_client_complet }}</div>
+                                            <div class="body-text">{{ number_format($commande->total, 0, ',', ' ') }} FCFA</div>
+                                            <div>
+                                                <div class="block-{{ $commande->statut_badge }}">{{ $commande->statut_libelle }}</div>
+                                            </div>
+                                            <div class="body-text">{{ $commande->created_at->format('d/m/Y') }}</div>
                                         </div>
-                                        <div class="body-text">2,672</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div class="body-text">X1</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div>
-                                            <div class="block-available">Delivered</div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li class="product-item gap14">
-                                    <div class="image no-bg">
-                                        <img src="images/products/32.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between flex-grow gap20">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-title-2">Proden Plaqueoff Dental Bites
-                                                Dog, 150 G</a>
-                                        </div>
-                                        <div class="body-text">2,672</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div class="body-text">X2</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div>
-                                            <div class="block-available">Delivered</div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li class="product-item gap14">
-                                    <div class="image no-bg">
-                                        <img src="images/products/33.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between flex-grow gap20">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-title-2">Zuke's Lil' Links Healthy
-                                                Little Sausage Links for Dogs...</a>
-                                        </div>
-                                        <div class="body-text">2,672</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div class="body-text">X1</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div>
-                                            <div class="block-available">Delivered</div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li class="product-item gap14">
-                                    <div class="image no-bg">
-                                        <img src="images/products/34.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between flex-grow gap20">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-title-2">Rachael Ray Nutrish Grain Free
-                                                Chicken Drumstick...</a>
-                                        </div>
-                                        <div class="body-text">2,672</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div class="body-text">X3</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div>
-                                            <div class="block-available">Delivered</div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li class="product-item gap14">
-                                    <div class="image no-bg">
-                                        <img src="images/products/35.png" alt="">
-                                    </div>
-                                    <div class="flex items-center justify-between flex-grow gap20">
-                                        <div class="name">
-                                            <a href="product-list.html" class="body-title-2">Fruitables Dog Treats Sweet
-                                                Potato & Pecan Flavor</a>
-                                        </div>
-                                        <div class="body-text">2,672</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div class="body-text">X2</div>
-                                        <div class="body-text">$28,672.36</div>
-                                        <div>
-                                            <div class="block-available">Delivered</div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="flex items-center justify-between flex-wrap gap10">
-                            <div class="text-tiny">Showing 5 entries</div>
-                            <ul class="wg-pagination">
-                                <li>
-                                    <a href="#"><i class="icon-chevron-left"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#">1</a>
-                                </li>
-                                <li class="active">
-                                    <a href="#">2</a>
-                                </li>
-                                <li>
-                                    <a href="#">3</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="icon-chevron-right"></i></a>
-                                </li>
+                                    </li>
+                                    <li class="divider"></li>
+                                @empty
+                                    <li class="text-center p-3">Aucune commande récente</li>
+                                @endforelse
                             </ul>
                         </div>
                     </div>
                     <!-- /orders -->
-                </div> --}}
+                </div>
                 <div class="tf-section-3">
                     <!-- top-product -->
                     <div class="wg-box">

@@ -55,6 +55,14 @@ class LoginController extends Controller
         // Produits récents (derniers 5)
         $recentProduits = \App\Models\Produit::latest()->take(5)->get();
         
+        // Statistiques des commandes
+        $totalCommandes = \App\Models\Commande::count();
+        $totalVentes = \App\Models\Commande::where('statut', '!=', 'annulee')->sum('total');
+        $commandesEnAttente = \App\Models\Commande::where('statut', 'en_attente')->count();
+        
+        // Commandes récentes
+        $recentCommandes = \App\Models\Commande::latest()->take(5)->get();
+        
         // Catégories avec nombre de produits
         $categoriesWithCount = \App\Models\Categorie::withCount('produits')->get();
 
@@ -64,8 +72,12 @@ class LoginController extends Controller
             'totalProduits',
             'totalCategories',
             'totalMarques',
+            'totalCommandes',
+            'totalVentes',
+            'commandesEnAttente',
             'recentUsers',
             'recentProduits',
+            'recentCommandes',
             'categoriesWithCount'
         ));
     }

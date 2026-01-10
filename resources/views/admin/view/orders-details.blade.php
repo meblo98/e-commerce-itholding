@@ -1,219 +1,196 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Orders details')
+@section('title', 'Détails de la commande')
 
 @section('content')
 
-    @include('admin.partials.header')
-    <!-- main-content -->
     <div class="main-content">
-        <!-- main-content-wrap -->
         <div class="main-content-inner">
-            <!-- main-content-wrap -->
             <div class="main-content-wrap">
                 <div class="flex items-center flex-wrap justify-between gap20 mb-27">
-                    <h3>Order #123783</h3>
+                    <h3>Commande {{ $commande->numero_commande }}</h3>
                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                         <li>
-                            <a href="index.html">
+                            <a href="{{ route('admin') }}">
                                 <div class="text-tiny">Dashboard</div>
                             </a>
                         </li>
+                        <li><i class="icon-chevron-right"></i></li>
                         <li>
-                            <i class="icon-chevron-right"></i>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="text-tiny">Order</div>
+                            <a href="{{ route('admin.commandes.index') }}">
+                                <div class="text-tiny">Commandes</div>
                             </a>
                         </li>
+                        <li><i class="icon-chevron-right"></i></li>
                         <li>
-                            <i class="icon-chevron-right"></i>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="text-tiny">Order detail</div>
-                            </a>
-                        </li>
-                        <li>
-                            <i class="icon-chevron-right"></i>
-                        </li>
-                        <li>
-                            <div class="text-tiny">Order #123783</div>
+                            <div class="text-tiny">{{ $commande->numero_commande }}</div>
                         </li>
                     </ul>
                 </div>
-                <!-- order-detail -->
+
+                <!-- Détails de la commande -->
                 <div class="wg-order-detail">
                     <div class="left flex-grow">
                         <div class="wg-box mb-20">
                             <div class="wg-table table-order-detail">
                                 <ul class="table-title flex items-center justify-between gap20 mb-24">
                                     <li>
-                                        <div class="body-title">All item</div>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown default">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button"
-                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="body-title-2 flex items-center gap8">Sort<i
-                                                        class="h6 icon-chevron-down"></i></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="javascript:void(0);">Name</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);">Quantity</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);">Price</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <div class="body-title">Articles de la commande</div>
                                     </li>
                                 </ul>
                                 <ul class="flex flex-column">
-                                    <li class="product-item gap14">
-                                        <div class="image no-bg">
-                                            <img src="images/products/41.png" alt="">
-                                        </div>
-                                        <div class="flex items-center justify-between gap40 flex-grow">
-                                            <div class="name">
-                                                <div class="text-tiny mb-1">Product name</div>
-                                                <a href="product-list.html" class="body-title-2">Kristin Watson</a>
+                                    @foreach($commande->items as $item)
+                                        <li class="product-item gap14">
+                                            @if($item->produit && $item->produit->image)
+                                                <div class="image no-bg">
+                                                    <img src="{{ asset('storage/' . $item->produit->image) }}" 
+                                                         alt="{{ $item->nom_produit }}">
+                                                </div>
+                                            @else
+                                                <div class="image no-bg">
+                                                    <img src="{{ asset('assets/img/placeholder.png') }}" 
+                                                         alt="{{ $item->nom_produit }}">
+                                                </div>
+                                            @endif
+                                            <div class="flex items-center justify-between gap40 flex-grow">
+                                                <div class="name">
+                                                    <div class="text-tiny mb-1">Produit</div>
+                                                    <div class="body-title-2">{{ $item->nom_produit }}</div>
+                                                    @if($item->marque_produit)
+                                                        <div class="text-tiny text-muted">{{ $item->marque_produit }}</div>
+                                                    @endif
+                                                </div>
+                                                <div class="name">
+                                                    <div class="text-tiny mb-1">Quantité</div>
+                                                    <div class="body-title-2">{{ $item->quantite }}</div>
+                                                </div>
+                                                <div class="name">
+                                                    <div class="text-tiny mb-1">Prix unitaire</div>
+                                                    <div class="body-title-2">{{ number_format($item->prix_unitaire, 0, ',', ' ') }} FCFA</div>
+                                                </div>
+                                                <div class="name">
+                                                    <div class="text-tiny mb-1">Sous-total</div>
+                                                    <div class="body-title-2">{{ number_format($item->sous_total, 0, ',', ' ') }} FCFA</div>
+                                                </div>
                                             </div>
-                                            <div class="name">
-                                                <div class="text-tiny mb-1">Quantity</div>
-                                                <div class="body-title-2">1</div>
-                                            </div>
-                                            <div class="name">
-                                                <div class="text-tiny mb-1">Price</div>
-                                                <div class="body-title-2">$50.47</div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="product-item gap14">
-                                        <div class="image no-bg">
-                                            <img src="images/products/44.png" alt="">
-                                        </div>
-                                        <div class="flex items-center justify-between gap40 flex-grow">
-                                            <div class="name">
-                                                <div class="text-tiny mb-1">Product name</div>
-                                                <a href="product-list.html" class="body-title-2">Kristin Watson</a>
-                                            </div>
-                                            <div class="name">
-                                                <div class="text-tiny mb-1">Quantity</div>
-                                                <div class="body-title-2">1</div>
-                                            </div>
-                                            <div class="name">
-                                                <div class="text-tiny mb-1">Price</div>
-                                                <div class="body-title-2">$50.47</div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="product-item gap14">
-                                        <div class="image no-bg">
-                                            <img src="images/products/43.png" alt="">
-                                        </div>
-                                        <div class="flex items-center justify-between gap40 flex-grow">
-                                            <div class="name">
-                                                <div class="text-tiny mb-1">Product name</div>
-                                                <a href="product-list.html" class="body-title-2">Kristin Watson</a>
-                                            </div>
-                                            <div class="name">
-                                                <div class="text-tiny mb-1">Quantity</div>
-                                                <div class="body-title-2">1</div>
-                                            </div>
-                                            <div class="name">
-                                                <div class="text-tiny mb-1">Price</div>
-                                                <div class="body-title-2">$50.47</div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
+
                         <div class="wg-box">
                             <div class="wg-table table-cart-totals">
                                 <ul class="table-title flex mb-24">
                                     <li>
-                                        <div class="body-title">Cart Totals</div>
+                                        <div class="body-title">Totaux</div>
                                     </li>
                                     <li>
-                                        <div class="body-title">Price</div>
+                                        <div class="body-title">Montant</div>
                                     </li>
                                 </ul>
                                 <ul class="flex flex-column gap14">
                                     <li class="cart-totals-item">
-                                        <span class="body-text">Subtotal:</span>
-                                        <span class="body-title-2">$70.13</span>
+                                        <span class="body-text">Sous-total:</span>
+                                        <span class="body-title-2">{{ number_format($commande->sous_total, 0, ',', ' ') }} FCFA</span>
                                     </li>
                                     <li class="divider"></li>
                                     <li class="cart-totals-item">
-                                        <span class="body-text">Shipping:</span>
-                                        <span class="body-title-2">$10.00</span>
+                                        <span class="body-text">Frais de livraison:</span>
+                                        <span class="body-title-2">{{ number_format($commande->frais_livraison, 0, ',', ' ') }} FCFA</span>
                                     </li>
                                     <li class="divider"></li>
                                     <li class="cart-totals-item">
-                                        <span class="body-text">Tax (GST):</span>
-                                        <span class="body-title-2">$5.00</span>
+                                        <span class="body-title">Total:</span>
+                                        <span class="body-title tf-color-1">{{ number_format($commande->total, 0, ',', ' ') }} FCFA</span>
                                     </li>
-                                    <li class="divider"></li>
-                                    <li class="cart-totals-item">
-                                        <span class="body-title">Total price:</span>
-                                        <span class="body-title tf-color-1">$90.58</span>
-                                    </li>
-
                                 </ul>
                             </div>
                         </div>
                     </div>
+
                     <div class="right">
                         <div class="wg-box mb-20 gap10">
-                            <div class="body-title">Summary</div>
+                            <div class="body-title">Résumé</div>
                             <div class="summary-item">
-                                <div class="body-text">Order ID</div>
-                                <div class="body-title-2">#192847</div>
+                                <div class="body-text">Numéro de commande</div>
+                                <div class="body-title-2">{{ $commande->numero_commande }}</div>
                             </div>
                             <div class="summary-item">
                                 <div class="body-text">Date</div>
-                                <div class="body-title-2">20 Nov 2023</div>
+                                <div class="body-title-2">{{ $commande->created_at->format('d/m/Y H:i') }}</div>
                             </div>
                             <div class="summary-item">
                                 <div class="body-text">Total</div>
-                                <div class="body-title-2 tf-color-1">$948.5</div>
+                                <div class="body-title-2 tf-color-1">{{ number_format($commande->total, 0, ',', ' ') }} FCFA</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="body-text">Statut</div>
+                                <div class="block-{{ $commande->statut_badge }}">{{ $commande->statut_libelle }}</div>
                             </div>
                         </div>
+
                         <div class="wg-box mb-20 gap10">
-                            <div class="body-title">Shipping Address</div>
-                            <div class="body-text">3517 W. Gray St. Utica, Pennsylvania 57867</div>
+                            <div class="body-title">Informations client</div>
+                            <div class="body-text"><strong>Nom:</strong> {{ $commande->nom_client_complet }}</div>
+                            @if($commande->email_client || $commande->user?->email)
+                                <div class="body-text"><strong>Email:</strong> {{ $commande->email_client ?? $commande->user->email }}</div>
+                            @endif
+                            @if($commande->telephone_client)
+                                <div class="body-text"><strong>Téléphone:</strong> {{ $commande->telephone_client }}</div>
+                            @endif
                         </div>
+
+                        @if($commande->adresse_livraison)
+                            <div class="wg-box mb-20 gap10">
+                                <div class="body-title">Adresse de livraison</div>
+                                <div class="body-text">{{ $commande->adresse_livraison }}</div>
+                            </div>
+                        @endif
+
                         <div class="wg-box mb-20 gap10">
-                            <div class="body-title">Payment Method</div>
-                            <div class="body-text">Pay on Delivery (Cash/Card). Cash on delivery (COD) available. Card/Net
-                                banking acceptance subject to device availability.</div>
+                            <div class="body-title">Méthode de paiement</div>
+                            <div class="body-text">{{ $commande->methode_paiement ?? 'Non spécifiée' }}</div>
+                            <div class="body-text"><strong>Statut:</strong> {{ ucfirst($commande->statut_paiement) }}</div>
                         </div>
+
+                        <!-- Formulaire de mise à jour du statut -->
+                        <div class="wg-box mb-20 gap10">
+                            <div class="body-title">Changer le statut</div>
+                            <form action="{{ route('admin.commandes.updateStatus', $commande) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <select name="statut" class="form-select mb-2" required>
+                                    <option value="en_attente" {{ $commande->statut == 'en_attente' ? 'selected' : '' }}>En attente</option>
+                                    <option value="confirmee" {{ $commande->statut == 'confirmee' ? 'selected' : '' }}>Confirmée</option>
+                                    <option value="en_preparation" {{ $commande->statut == 'en_preparation' ? 'selected' : '' }}>En préparation</option>
+                                    <option value="expediee" {{ $commande->statut == 'expediee' ? 'selected' : '' }}>Expédiée</option>
+                                    <option value="livree" {{ $commande->statut == 'livree' ? 'selected' : '' }}>Livrée</option>
+                                    <option value="annulee" {{ $commande->statut == 'annulee' ? 'selected' : '' }}>Annulée</option>
+                                </select>
+                                <button type="submit" class="tf-button style-1 w-full">
+                                    <i class="icon-check"></i>Mettre à jour
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Formulaire de numéro de tracking -->
                         <div class="wg-box gap10">
-                            <div class="body-title">Expected Date Of Delivery</div>
-                            <div class="body-title-2 tf-color-2">20 Nov 2023</div>
-                            <a class="tf-button style-1 w-full" href="oder-tracking.html"><i class="icon-truck"></i>Track
-                                order</a>
+                            <div class="body-title">Numéro de tracking</div>
+                            <form action="{{ route('admin.commandes.updateTracking', $commande) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="text" name="numero_tracking" class="form-control mb-2" 
+                                       value="{{ $commande->numero_tracking }}" placeholder="Entrez le numéro de tracking">
+                                <button type="submit" class="tf-button style-1 w-full">
+                                    <i class="icon-truck"></i>Enregistrer
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!-- /order-detail -->
             </div>
-            <!-- /main-content-wrap -->
         </div>
-        <!-- /main-content-wrap -->
-        <!-- bottom-page -->
-        <div class="bottom-page">
-            <div class="body-text">Copyright © 2024 Remos. Design with</div>
-            <i class="icon-heart"></i>
-            <div class="body-text">by <a href="https://themeforest.net/user/themesflat/portfolio">Themesflat</a> All rights
-                reserved.</div>
-        </div>
-        <!-- /bottom-page -->
     </div>
+
 @endsection
