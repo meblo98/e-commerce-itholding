@@ -127,7 +127,10 @@
                         </div>
                         <hr>
                         <div class="d-grid gap-3 mt-4">
-                            <a href="{{ route('panier.whatsapp') }}" class="btn btn-success w-100 mb-3 cart-cta">
+                            <a href="{{ route('checkout') }}" class="btn btn-primary w-100 mb-2 cart-cta">
+                                <i class="icon-check"></i> Valider la commande
+                            </a>
+                            <a href="{{ route('panier.whatsapp') }}" class="btn btn-outline-success w-100 mb-3 cart-cta">
                                 <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
                             </a>
                             <a href="{{ url('/produits') }}" class="btn btn-outline-primary w-100 cart-cta">

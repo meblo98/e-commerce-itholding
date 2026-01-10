@@ -68,6 +68,15 @@ Route::delete('/panier/remove/{panier}', [PanierController::class, 'remove'])->n
 Route::delete('/panier/clear', [PanierController::class, 'clear'])->name('panier.clear');
 Route::get('/panier/whatsapp', [PanierController::class, 'whatsapp'])->name('panier.whatsapp');
 Route::get('/panier/facture', [PanierController::class, 'facture'])->name('panier.facture');
+Route::get('/checkout', [PanierController::class, 'checkout'])->name('checkout')->middleware('auth');
+Route::post('/place-order', [PanierController::class, 'placeOrder'])->name('place.order')->middleware('auth');
+
+// Espace Client : Mes commandes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/mes-commandes', [\App\Http\Controllers\CommandeController::class, 'index'])->name('commandes.index');
+    Route::get('/ma-commande/{commande}', [\App\Http\Controllers\CommandeController::class, 'show'])->name('commandes.show');
+});
+
 
 
 //Route dashboard
@@ -137,18 +146,19 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
 
 // Route protégée par le groupe auth ci-dessus
 
-//RouteLogin
-Route::get('/login', [LoginController::class, 'show'])
-    ->name('login')
-    ->middleware('guest');
+// Authentification Client
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'showClientLogin'])->name('login');
+    Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.post');
+    
+    Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'show'])->name('register');
+    Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register.post');
+});
 
-Route::post('/login', [LoginController::class, 'login'])
-    ->name('login.post')
-    ->middleware('guest');
+// Authentification Admin (Redirection si nécessaire ou page dédiée)
+Route::get('/admin/login', [\App\Http\Controllers\Auth\LoginController::class, 'show'])->name('admin.login')->middleware('guest');
 
-Route::post('/logout', [LogoutController::class, 'logout'])
-    ->name('logout')
-    ->middleware('auth');
+Route::post('/logout', [\App\Http\Controllers\Auth\LogoutController::class, 'logout'])->name('logout')->middleware('auth');
 
 // routes admin protégées ci-dessus
 

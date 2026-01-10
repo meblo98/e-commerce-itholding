@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commande;
+use App\Models\CommandeItem;
 use App\Models\Panier;
 use App\Models\Produit;
+use App\Models\User;
+use App\Mail\AdminOrderNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -196,5 +202,92 @@ class PanierController extends Controller
         }
 
         return view('panier.facture', compact('panierItems', 'total'));
+    }
+
+    public function checkout()
+    {
+        $panierItems = Panier::with('produit.marque')->where('user_id', Auth::id())->get();
+        if ($panierItems->isEmpty()) {
+            return redirect()->route('panier.index')->with('error', 'Votre panier est vide.');
+        }
+
+        $total = $panierItems->sum(function ($item) {
+            return $item->produit->prix * $item->quantite;
+        });
+
+        return view('panier.checkout', compact('panierItems', 'total'));
+    }
+
+    public function placeOrder(Request $request)
+    {
+        $request->validate([
+            'nom_client' => 'required|string|max:255',
+            'email_client' => 'required|email|max:255',
+            'telephone_client' => 'required|string|max:255',
+            'adresse_livraison' => 'required|string',
+            'methode_paiement' => 'required|string',
+        ]);
+
+        $panierItems = Panier::with('produit')->where('user_id', Auth::id())->get();
+
+        if ($panierItems->isEmpty()) {
+            return redirect()->route('panier.index')->with('error', 'Votre panier est vide.');
+        }
+
+        $total = $panierItems->sum(function ($item) {
+            return $item->produit->prix * $item->quantite;
+        });
+
+        try {
+            DB::beginTransaction();
+
+            $commande = Commande::create([
+                'numero_commande' => Commande::generateNumeroCommande(),
+                'user_id' => Auth::id(),
+                'nom_client' => $request->nom_client,
+                'email_client' => $request->email_client,
+                'telephone_client' => $request->telephone_client,
+                'adresse_livraison' => $request->adresse_livraison,
+                'sous_total' => $total,
+                'total' => $total, // On pourra ajouter des frais de livraison plus tard
+                'statut' => 'en_attente',
+                'statut_paiement' => 'en_attente',
+                'methode_paiement' => $request->methode_paiement,
+            ]);
+
+            foreach ($panierItems as $item) {
+                CommandeItem::create([
+                    'commande_id' => $commande->id,
+                    'produit_id' => $item->produit_id,
+                    'nom_produit' => $item->produit->nom,
+                    'marque_produit' => $item->produit->marque?->nom,
+                    'prix_unitaire' => $item->produit->prix,
+                    'quantite' => $item->quantite,
+                    'sous_total' => $item->produit->prix * $item->quantite,
+                ]);
+            }
+
+            // Vider le panier
+            Panier::where('user_id', Auth::id())->delete();
+
+            DB::commit();
+
+            // Envoyer l'email à l'admin
+            try {
+                $admin = User::where('role', 'admin')->first();
+                if ($admin) {
+                    Mail::to($admin->email)->send(new AdminOrderNotification($commande));
+                }
+            } catch (\Exception $e) {
+                // On log l'erreur mais on ne bloque pas l'utilisateur
+                \Log::error("Erreur envoi email admin : " . $e->getMessage());
+            }
+
+            return view('panier.success', compact('commande'));
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Une erreur est survenue lors du passage de la commande : ' . $e->getMessage());
+        }
     }
 }

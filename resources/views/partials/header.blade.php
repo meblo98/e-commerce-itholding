@@ -25,13 +25,27 @@
                             </form>
                         </div>
                         <div class="xc-header-one__btns d-none d-lg-flex" style="gap: 15px;">
-                            <a href="{{ auth()->check() ? url('/admin') : route('login') }}" class="xc-header-one__btn">
-                                @if(auth()->check())
-                                    <i class="icon-user"></i>{{ auth()->user()->name }}
-                                @else
-                                    <i class="icon-user"></i>Connexion
-                                @endif
-                            </a>
+                            <div class="dropdown">
+                                <a href="#" class="xc-header-one__btn dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="icon-user"></i>{{ auth()->check() ? auth()->user()->name : 'Connexion' }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    @if(auth()->check())
+                                        <li><a class="dropdown-item" href="{{ url('/admin') }}"><i class="icon-grid me-2"></i>Dashboard</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('commandes.index') }}"><i class="icon-file-text me-2"></i>Mes Commandes</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                <i class="icon-log-out me-2"></i>Déconnexion
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+                                        </li>
+                                    @else
+                                        <li><a class="dropdown-item" href="{{ route('login') }}">Connexion</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('register') }}">Inscription</a></li>
+                                    @endif
+                                </ul>
+                            </div>
                             <a href="{{ route('panier.index') }}" class="xc-header-one__btn xc-header-one__cart">
                                 <i class="icon-shopping-cart"></i>
                                 @php
