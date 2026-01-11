@@ -14,6 +14,8 @@ use Illuminate\Support\Str;
 
 class JsonProductsSeeder extends Seeder
 {
+    private int $maxProducts = 10;
+
     /**
      * Run the database seeds.
      */
@@ -76,6 +78,10 @@ class JsonProductsSeeder extends Seeder
         $this->command->info("→ {$total} produit(s) à importer");
 
         foreach ($products as $index => $productData) {
+            if (Produit::count() >= $this->maxProducts) {
+                $this->command->info("⏹️ Limite de {$this->maxProducts} produits atteinte. Arrêt.");
+                break;
+            }
             try {
                 $this->importProduct($productData, $categorie->id);
                 $successCount++;

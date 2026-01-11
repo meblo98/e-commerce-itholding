@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 
 class ProduitSeeder extends Seeder
 {
+    private int $maxProducts = 10;
+
     /**
      * Run the database seeds.
      */
@@ -48,6 +50,7 @@ class ProduitSeeder extends Seeder
             );
 
             foreach ($rootFiles as $file) {
+                if (Produit::count() >= $this->maxProducts) return;
                 $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
                 if (! in_array($ext, ['jpg', 'jpeg', 'png', 'webp', 'gif'])) continue;
 
@@ -96,6 +99,7 @@ class ProduitSeeder extends Seeder
             // iterate image files in the folder
             $files = scandir($dirPath);
             foreach ($files as $file) {
+                if (Produit::count() >= $this->maxProducts) return;
                 if (in_array($file, ['.', '..'])) continue;
                 $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
                 if (! in_array($ext, ['jpg','jpeg','png','webp','gif'])) continue;
@@ -192,6 +196,7 @@ class ProduitSeeder extends Seeder
         ];
 
         foreach ($sampleProducts as $product) {
+            if (Produit::count() >= $this->maxProducts) return;
             if ($product['categorie_id'] && $product['marque_id']) {
                 Produit::create($product);
             }
