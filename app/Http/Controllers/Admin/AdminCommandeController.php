@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Commande;
 use App\Models\CommandeItem;
+use App\Mail\ClientOrderDeliveredNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AdminCommandeController extends Controller
 {
@@ -73,6 +75,15 @@ class AdminCommandeController extends Controller
         $commande->update([
             'statut' => $request->statut,
         ]);
+
+        // Envoyer un email au client si la commande est livrée
+        if ($request->statut === 'livree') {
+            try {
+                Mail::to($commande->email_client)->send(new ClientOrderDeliveredNotification($commande));
+            } catch (\Exception $e) {
+                \Log::error("Erreur envoi email livraison : " . $e->getMessage());
+            }
+        }
 
         return redirect()->back()->with('success', 'Statut de la commande mis à jour avec succès.');
     }

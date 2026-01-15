@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/spacing/spacing.css') }}" />
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/swiftcart.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-header.css') }}" />
 
 
 

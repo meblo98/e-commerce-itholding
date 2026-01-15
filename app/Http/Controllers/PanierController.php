@@ -8,6 +8,7 @@ use App\Models\Panier;
 use App\Models\Produit;
 use App\Models\User;
 use App\Mail\AdminOrderNotification;
+use App\Mail\ClientOrderNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -272,15 +273,20 @@ class PanierController extends Controller
 
             DB::commit();
 
-            // Envoyer l'email à l'admin
+            // Envoyer les emails
             try {
+                // Email à l'admin
                 $admin = User::where('role', 'admin')->first();
                 if ($admin) {
                     Mail::to($admin->email)->send(new AdminOrderNotification($commande));
                 }
+
+                // Email au client
+                Mail::to($commande->email_client)->send(new ClientOrderNotification($commande));
+                
             } catch (\Exception $e) {
                 // On log l'erreur mais on ne bloque pas l'utilisateur
-                \Log::error("Erreur envoi email admin : " . $e->getMessage());
+                \Log::error("Erreur envoi email : " . $e->getMessage());
             }
 
             return view('panier.success', compact('commande'));
